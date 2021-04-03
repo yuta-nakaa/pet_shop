@@ -18,18 +18,17 @@ $animals = $stmt->fetchall(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>animals - SELECT</title>
+    <title>ペットショップアプリ課題1</title>
 </head>
 
 <body>
     <h2>本日の動物ご紹介！</h2>
-        <?php foreach ($animals as $animal) : ?>
-            <?= h($animal['type']) . 'の' . h($animal['classification'] . 'ちゃん') ?><br>
-            <?= h($animal['description'])  ?><br>
-            <?= h($animal['birthday']) . '生まれ' ?><br>
-            <?= h('出身地', $animal['birthplace'])   ?><br>
-            <hr>
-        <?php endforeach; ?>
+    <?php foreach ($animals as $animal): ?>
+        <p><?= h($animal['type']) . 'の' . h($animal['classification'] . 'ちゃん') ?></p>
+        <p><?= h($animal['description'])?></p>
+        <p><?= h($animal['birthday']) . ' 生まれ'?></p>
+        <p><?= h('出身地 ' . $animal['birthplace'])?></p><hr>
+    <?php endforeach; ?>
 </body>
 
 </html>
